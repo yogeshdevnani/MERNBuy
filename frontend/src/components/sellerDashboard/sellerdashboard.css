@@ -1,0 +1,46 @@
+.dashboard{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;    
+    flex: 0 0 100%;
+}
+
+#updateInventory{
+    display: flex;
+    padding: 10px;
+    justify-content: space-evenly;
+}
+
+#seller-overview{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    
+}
+
+#dashboard-card{
+    width: 20%;
+    height: 20%;
+    background-color: #EF233C;
+}
+
+#product-table{
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+}
+
+#buttons{
+    background-color: #2B2D42;
+}
+
+#buttons:hover{
+    background-color: #EF233C;
+}
+
+#links{
+    color: white;
+    text-decoration: none;
+}

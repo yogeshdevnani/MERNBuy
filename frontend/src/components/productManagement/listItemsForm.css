@@ -1,0 +1,69 @@
+.listItemsForm{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+
+#addNewItemStyle{
+    display: fle;
+    flex-wrap: nowrwrap;
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-start;
+    /* flex-grow: 2; */
+}
+
+
+#uploaded-images{
+    display: flexbox;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 10px;   
+    padding-right: 20px;
+
+}
+
+
+#updateItemsPage{
+    display: flex;
+}
+
+#buttons{
+    background-color: #2B2D42;
+}
+
+#buttons:hover{
+    background-color: #EF233C;
+}
+
+#links{
+    color: white;
+    text-decoration: none;
+}
+
+#UploadImageTagListItem{
+    /* background-color: #EF233C; */
+    /* position: static; */
+}
+
+.ImagesGrid{
+    display: flex;
+    flex-direction: row;
+    width: 600px;
+    height: 300px;
+    overflow: scroll;   
+    margin: 15px;
+    padding: 5px;
+}
+
+.ImageGridFull{
+    display: flex;
+    flex-direction: column;
+    /* position: static; */
+}
+
+.ImageGridMainImage{
+    padding-top: 10px;
+    margin: 15px;
+}

@@ -1,0 +1,110 @@
+.mode{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+    display: inline-flex;
+    background: #fff;
+    height: 100px;
+    width: 400px;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 5px;
+    padding: 20px 15px;
+    
+  }
+  .mode .option{
+    background: #fff;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 0 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 0 10px;
+    border: 2px solid lightgrey;
+    transition: all 0.3s ease;
+  }
+  .mode .option .dot{
+    height: 20px;
+    width: 20px;
+    background: #d9d9d9;
+    border-radius: 50%;
+    position: relative;
+  }
+  .mode .option .dot::before{
+    position: absolute;
+    content: "";
+    top: 4px;
+    left: 4px;
+    width: 12px;
+    height: 12px;
+    background: #D90429;
+    border-radius: 50%;
+    opacity: 0;
+    transform: scale(1.5);
+    transition: all 0.3s ease;
+  }
+  input[type="radio"]{
+    display: none;
+  }
+  #option-1:checked:checked ~ .option-1,
+  #option-2:checked:checked ~ .option-2,
+  #option-3:checked:checked ~ .option-3{
+    border-color: #D90429;
+    background: #D90429;
+  }
+  #option-1:checked:checked ~ .option-1 .dot,
+  #option-2:checked:checked ~ .option-2 .dot,
+  #option-3:checked:checked ~ .option-3 .dot{
+    background: #fff;
+  }
+  #option-1:checked:checked ~ .option-1 .dot::before,
+  #option-2:checked:checked ~ .option-2 .dot::before,
+  #option-3:checked:checked ~ .option-3 .dot::before{
+    opacity: 1;
+    transform: scale(1);
+  }
+  .mode .option span{
+    font-size: 20px;
+    color: #808080;
+  }
+  #option-1:checked:checked ~ .option-1 span,
+  #option-2:checked:checked ~ .option-2 span,
+  #option-3:checked:checked ~ .option-3 span{
+    color: #fff;
+  }
+  
+  .pg{
+    text-align: center;
+    margin-top: 0px;
+  }
+
+  p{
+    color: #D90429;
+  }
+  
+  form{
+    border: 2px solid rgb(255, 255, 255);
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 1px 2px 6px 2px grey;
+    width: fit-content;
+   margin-left: 30%;
+  }
+  button{
+    padding: 15px;
+    color: white;
+    background-color: #D90429;
+    border: none;
+    border-radius: 12px;
+    width: 100px;
+    margin-top: 10px;
+  }
+
+  .form-error{
+    color:#D90429
+  }

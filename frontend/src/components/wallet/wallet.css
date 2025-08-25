@@ -1,0 +1,21 @@
+.wallet{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.wallet-card{
+    border: 1px solid #c5c6c7;
+    padding: 20px;
+    width: 40%;
+    margin-top: 5%;
+    text-align: center;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; */
+    border-radius: 5px;
+    height: 530px;
+}

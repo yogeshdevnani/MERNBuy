@@ -1,0 +1,290 @@
+.App {
+    text-align: center;
+  }
+
+  p {
+    color: #282c34!important
+  }
+  
+  .App-logo {
+    height: 40vmin;
+    pointer-events: none;
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+      animation: App-logo-spin infinite 20s linear;
+    }
+  }
+  
+  .App-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+  
+  .App-link {
+    color: #61dafb;
+  }
+  
+  @keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .navbar {
+    background-color: #d90429 !important;
+  }
+
+  .button, .button:hover {
+    background-color: #d90429 !important;
+    border-color: #d90429 !important;
+    text-decoration: none !important;;
+  }
+
+  .link {
+    text-decoration: none;
+  }
+
+  .button-black, .button-black:hover {
+    background-color: #282c34 !important;
+    border-color:  #282c34 !important;
+  }
+
+
+  .outline :hover{
+    color: #282c34
+  }
+  
+  .btn-dark {
+    background-color: #2b2d42 !important;
+    border-color: #2b2d42 !important;
+    color: #fff;
+  }
+  
+  .btn-warning {
+    background-color: #ef233c !important;
+    border-color: #ef233c !important;
+    color: #fff;
+  }
+  
+  .btn-danger {
+    background-color: #d90429 !important;
+    border-color: #d90429 !important;
+  }
+  
+  .margin {
+    margin: 5rem auto;
+  }
+  
+  .responsive-product-image {
+    max-width: 100%;
+    height: 70%;
+  }
+  
+  .responsive-image {
+    max-width: 100%;
+    height: 80%;
+  }
+  
+  .margin-top {
+    margin-top: 4rem;
+  }
+  
+  .center-title {
+    text-align: center;
+  }
+  
+  .icon-div {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .icon-styles {
+    margin-right: 0.5rem;
+  }
+  
+  .icon-text {
+    margin-top: -3px;
+  }
+  
+  .heading-2 {
+    font-size: 24px;
+    text-align: center;
+  }
+  
+  .center-div {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+  
+  .buttons-margin {
+    margin-left: 2rem;
+    margin-top: 3rem;
+  }
+  
+  .heading-1 {
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .like-dislike {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .icon-thumbs {
+    margin-right: 0.8rem;
+    cursor: pointer;
+  }
+  
+  .card-style {
+    width: 100%;
+    margin-top: 3rem;
+  }
+  
+  .center {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .rating-text {
+    color: grey;
+    font-size: 14px;
+  }
+  
+  .review-text {
+    color: grey;
+    font-size: 0.8rem;
+    margin-top: -1rem;
+  }
+  
+  .margin-left {
+    margin-left: 0.5rem;
+  }
+  
+  .flex-style {
+    display: flex;
+  }
+  .review-user {
+    display: flex;
+    margin-top: -0.5rem;
+  }
+  
+  .username {
+    color: grey;
+    font-size: 0.8rem;
+    margin-right: 0.8rem;
+  }
+  
+  .date {
+    color: grey;
+    font-size: 0.8rem;
+  }
+  
+  .add-cart {
+    justify-content: flex-start !important;
+    margin-top: 8rem;
+  }
+  
+  .flex-around {
+    justify-content: space-between;
+  }
+  
+  .fluid {
+    max-width: 80%;
+    height: 40%;
+  }
+  
+  .d-grid {
+    margin-top: -1rem;
+  }
+  
+  @media (max-width: 991px) {
+    .card {
+      margin-top: 5rem;
+    }
+  
+    .col-md-4 {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .responsive-image {
+      max-width: 100%;
+      height: 10rem;
+      margin-top: 0.5rem;
+      margin-bottom: 1rem;
+    }
+  
+    .card {
+      margin-top: 2rem;
+    }
+  
+    .mt-5 {
+      margin-top: 1rem !important;
+    }
+  
+    .responsive-product-image {
+      height: 20rem;
+    }
+  
+    .mb-4 {
+      margin-bottom: 1rem !important;
+    }
+  
+    .d-grid {
+      grid-gap: 10px !important;
+    }
+  
+    .margin {
+      margin: 2rem auto;
+    }
+  
+    .col-sm-12,
+    .col-12,
+    .col-md-4,
+    .col-sm-6,
+    .row {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+  
+    .card {
+      margin-bottom: 2rem;
+    }
+  
+    .mt-3 {
+      margin-top: 0.5rem !important;
+    }
+  }
+  
+  @media (max-width: 571px) {
+    .d-grid,
+    .container,
+    .col-sm-6 {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+  }
+  
