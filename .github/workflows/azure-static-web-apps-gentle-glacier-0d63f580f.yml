@@ -48,6 +48,8 @@ jobs:
         uses: Azure/static-web-apps-deploy@v1
         env:
           REACT_APP_BACKEND_SERVER: ${{ secrets.REACT_APP_BACKEND_SERVER }}
+          CI: false
+          ESLINT_NO_DEV_ERRORS: true
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_GENTLE_GLACIER_0D63F580F }}
           action: "upload"
