@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon -r dotenv/config src/index.js dotenv_config_path=env/local.env",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon src/index.js"
+    "start": "node src/index.js"
   },
   "author": "",
   "license": "ISC",
