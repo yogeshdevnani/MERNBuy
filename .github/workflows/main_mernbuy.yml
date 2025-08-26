@@ -14,6 +14,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       REACT_APP_BACKEND_SERVER: ${{ secrets.REACT_APP_BACKEND_SERVER }}
+      CI: false
+      ESLINT_NO_DEV_ERRORS: true
     permissions:
       contents: read #This is required for actions/checkout
 
@@ -29,6 +31,7 @@ jobs:
         run: |
           cd frontend
           npm install
+          npm run build
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
@@ -62,4 +65,4 @@ jobs:
         with:
           app-name: "mernbuy"
           slot-name: "Production"
-          package: .
+          package: ./frontend/build
