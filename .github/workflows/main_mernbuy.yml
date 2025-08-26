@@ -39,7 +39,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: node-app
-          path: frontend
+          path: frontend/build # Only upload the build files
 
   deploy:
     runs-on: ubuntu-latest
@@ -61,10 +61,26 @@ jobs:
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_6814913EE1554534AD30E94A27B15B46 }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_95D761C69B254C55BEDA0D527D66A00C }}
 
+      - name: Set Web App settings
+        uses: azure/appservice-settings@v1
+        with:
+          app-name: "mernbuy"
+          app-settings-json: |
+            [
+              {
+                "name": "SCM_DO_BUILD_DURING_DEPLOYMENT",
+                "value": "false"
+              },
+              {
+                "name": "WEBSITE_NODE_DEFAULT_VERSION", 
+                "value": "~20"
+              }
+            ]
+
       - name: "Deploy to Azure Web App"
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
           app-name: "mernbuy"
           slot-name: "Production"
-          package: ./frontend/build
+          package: .
