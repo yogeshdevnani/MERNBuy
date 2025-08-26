@@ -12,6 +12,12 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      MONGODB_URL: ${{ secrets.MONGODB_URL }}
+      JWT_SECRET: ${{ secrets.JWT_SECRET }}
+      PORT: ${{ secrets.PORT }}
+      USEREMAIL: ${{ secrets.USEREMAIL }}
+      USERPASSWORD: ${{ secrets.USERPASSWORD }}
     permissions:
       contents: read #This is required for actions/checkout
 
@@ -64,3 +70,4 @@ jobs:
           package: .
 
           
+
