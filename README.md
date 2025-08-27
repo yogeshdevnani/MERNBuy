@@ -5,6 +5,8 @@
 > **⚠️ DEVELOPMENT IN PROGRESS**
 > If you have any suggestions, please feel free to reach out to me on [LinkedIn](https://linkedin.com/in/yogeshdevnani)
 
+MERNBuy is an e-commerce platform built with the MERN stack (MongoDB, Express, React, Node.js). It features product browsing, user authentication, shopping cart functionality, and checkout process.
+
 ## Getting Started
 
 ### Prerequisites
@@ -13,30 +15,48 @@ Before running the project locally, make sure to install the following software,
 
 ```
 Node.js
-
 ```
 
 Refer to the section below for detailed step-by-step instructions on installing the required software, libraries, and plug-ins.
 
 ### Run steps using cmd in local
 
-```
-    git clone and cd to this project
-```
+Backend:
 
 ```
-    npm install
+cd backend
+npm install
+npm start
 ```
 
+Frontend:
+
 ```
-    npm start
+cd frontend
+npm install
+npm start
 ```
+
+The backend will run on port 5000 and frontend on port 3000 by default.
 
 ## Built With
 
-- [React.js](https://reactjs.org/) - React.js framework for frontend
-- [React-Bootstrap](https://react-bootstrap.github.io/) - Used React-Bootstrap for styling the application using built in components
-- [React Router ](https://reactrouter.com/en/main) - Used React Router for routing
-- [Material-UI](https://mui.com/material-ui/getting-started/overview/) Used for creating UI elements and for styling purposes
+### Frontend
 
-Used images and product data from [FakeStoreAPI](https://fakestoreapi.com)
+- [React](https://reactjs.org/) - JavaScript library for building user interfaces
+- [Redux](https://redux.js.org/) & [Redux Toolkit](https://redux-toolkit.js.org/) - State management
+- [Material UI](https://mui.com/) - Primary UI framework with Material Design components
+
+### Backend
+
+- [Node.js](https://nodejs.org/) - JavaScript runtime
+- [Express](https://expressjs.com/) - Web framework for Node.js
+- [MongoDB](https://www.mongodb.com/) - NoSQL database
+- [Mongoose](https://mongoosejs.com/) - MongoDB object modeling for Node.js
+- [JWT](https://jwt.io/) - JSON Web Tokens for authentication
+- [Bcrypt](https://github.com/kelektiv/node.bcrypt.js) - Password hashing
+
+### Deployment
+
+- [Azure App Service](https://azure.microsoft.com/en-us/products/app-service/) - Hosting platform
+- [GitHub Actions](https://github.com/features/actions) - CI/CD workflow
