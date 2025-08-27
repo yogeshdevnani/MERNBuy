@@ -1,3 +1,10 @@
+# MERNBuy
+
+🌐 [mernbuy.azurewebsites.net](https://mernbuy.azurewebsites.net)
+
+> **⚠️ DEVELOPMENT IN PROGRESS**
+> If you have any suggestions, please feel free to reach out to me on [LinkedIn](https://linkedin.com/in/yogeshdevnani)
+
 ## Getting Started
 
 ### Prerequisites
