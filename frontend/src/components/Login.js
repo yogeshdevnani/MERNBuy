@@ -187,11 +187,11 @@ function Login() {
           <font color="red">{message}</font>
         </p>
         <Grid container>
-          <Grid item xs>
+          {/* <Grid item xs>
             <Link to="/otp" variant="body2">
               Forgot password?
             </Link>
-          </Grid>
+          </Grid> */}
           <Grid item>
             <Link to="/register" variant="body2">
               {"Don't have an account? Sign Up"}
