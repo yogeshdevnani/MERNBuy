@@ -72,7 +72,7 @@ const Product = (props) => {
         display: "flex",
         flexDirection: "column",
         gap: "0.5rem",
-        padding: "0rem 2rem 3rem 2rem",
+        padding: "0.5rem 1rem 1.5rem 1rem",
         borderRadius: "10px",
         boxShadow: 6,
       }}
@@ -80,11 +80,13 @@ const Product = (props) => {
       <Box
         sx={{
           display: "flex",
-          paddingTop: "2rem",
+          paddingTop: "0.5rem",
           justifySelf: "center",
           alignSelf: "center",
-          height: "13rem",
-          width: "9rem",
+          height: "200px",
+          width: "100%",
+          overflow: "hidden",
+          borderRadius: "8px",
         }}
       >
         <Box
@@ -92,14 +94,20 @@ const Product = (props) => {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
+            width: "100%",
+            height: "100%",
           }}
         >
           <LazyLoadImage
             onClick={handleProductClick}
             src={imageThumbnailUrl}
             width={"100%"}
-            style={{ maxWidth: "100%", cursor: "pointer" }}
-            height={"100%"}
+            style={{
+              width: "100%",
+              height: "100%",
+              cursor: "pointer",
+              objectFit: "cover",
+            }}
             alt={name}
           />
         </Box>
