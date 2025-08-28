@@ -3,6 +3,7 @@ import "../Main.css";
 import { Link, useNavigate } from "react-router-dom";
 import { Button, Grid, InputLabel, Radio, TextField } from "@mui/material";
 import { sizeWidth } from "@mui/system";
+import DemoCredentialsBanner from "./DemoCredentialsBanner";
 import axios from "axios";
 
 function Registration() {
@@ -149,142 +150,145 @@ function Registration() {
   };
 
   return (
-    <div id="register">
-      <h2 style={{ textAlign: "center" }}>Register User</h2>
+    <div>
+      <DemoCredentialsBanner />
+      <div id="register" style={{ marginTop: "60px" }}>
+        <h2 style={{ textAlign: "center" }}>Register User</h2>
 
-      <Radio
-        sx={{ ml: 9, mb: 1 }}
-        type="radio"
-        name="userType"
-        value="Buyer"
-        id="Buyer"
-        checked={userType === "Buyer"}
-        onChange={changesInputValues}
-      />
-      <label htmlFor="Buyer">Buyer</label>
+        <Radio
+          sx={{ ml: 9, mb: 1 }}
+          type="radio"
+          name="userType"
+          value="Buyer"
+          id="Buyer"
+          checked={userType === "Buyer"}
+          onChange={changesInputValues}
+        />
+        <label htmlFor="Buyer">Buyer</label>
 
-      <Radio
-        sx={{ ml: 1, mb: 1 }}
-        type="radio"
-        name="userType"
-        value="Seller"
-        id="Seller"
-        checked={userType === "Seller"}
-        onChange={changesInputValues}
-      />
-      <label htmlFor="Seller">Seller</label>
-      <br></br>
+        <Radio
+          sx={{ ml: 1, mb: 1 }}
+          type="radio"
+          name="userType"
+          value="Seller"
+          id="Seller"
+          checked={userType === "Seller"}
+          onChange={changesInputValues}
+        />
+        <label htmlFor="Seller">Seller</label>
+        <br></br>
 
-      {/* <InputLabel required sx={{ ml: 10  }} className="label"><b>First Name</b></InputLabel> */}
-      <TextField
-        required
-        label="First Name"
-        sx={{ ml: 9 }}
-        size="small"
-        type="text"
-        name="firstName"
-        value={firstName}
-        onChange={changesInputValues}
-      />
-      <br></br>
-      <p style={{ color: "Red", textAlign: "center" }}>
-        {" "}
-        <font color="red">{errorMessageforFirstName}</font>
-      </p>
+        {/* <InputLabel required sx={{ ml: 10  }} className="label"><b>First Name</b></InputLabel> */}
+        <TextField
+          required
+          label="First Name"
+          sx={{ ml: 9 }}
+          size="small"
+          type="text"
+          name="firstName"
+          value={firstName}
+          onChange={changesInputValues}
+        />
+        <br></br>
+        <p style={{ color: "Red", textAlign: "center" }}>
+          {" "}
+          <font color="red">{errorMessageforFirstName}</font>
+        </p>
 
-      {/* <InputLabel required sx={{ ml: 10  }} className="label"><b>Last Name</b></InputLabel> */}
-      <TextField
-        required
-        label="Last Name"
-        sx={{ ml: 9 }}
-        size="small"
-        type="text"
-        name="lastName"
-        value={lastName}
-        onChange={changesInputValues}
-      />
-      <p style={{ color: "Red", textAlign: "center" }}>
-        <font color="red">{errorMessageforLastName}</font>
-      </p>
+        {/* <InputLabel required sx={{ ml: 10  }} className="label"><b>Last Name</b></InputLabel> */}
+        <TextField
+          required
+          label="Last Name"
+          sx={{ ml: 9 }}
+          size="small"
+          type="text"
+          name="lastName"
+          value={lastName}
+          onChange={changesInputValues}
+        />
+        <p style={{ color: "Red", textAlign: "center" }}>
+          <font color="red">{errorMessageforLastName}</font>
+        </p>
 
-      {/* <InputLabel  required sx={{ ml: 10  }} className="label"><b>Email</b></InputLabel> */}
-      <TextField
-        required
-        label="Email Address"
-        sx={{ ml: 9 }}
-        size="small"
-        type="text"
-        name="email"
-        value={email}
-        onChange={changesInputValues}
-      />
-      <p style={{ color: "Red", textAlign: "center" }}>
-        <font color="red">{errorMessageforEmail}</font>
-      </p>
+        {/* <InputLabel  required sx={{ ml: 10  }} className="label"><b>Email</b></InputLabel> */}
+        <TextField
+          required
+          label="Email Address"
+          sx={{ ml: 9 }}
+          size="small"
+          type="text"
+          name="email"
+          value={email}
+          onChange={changesInputValues}
+        />
+        <p style={{ color: "Red", textAlign: "center" }}>
+          <font color="red">{errorMessageforEmail}</font>
+        </p>
 
-      {/* <InputLabel  required sx={{ ml: 10  }} className="label"><b>Password</b></InputLabel> */}
-      <TextField
-        required
-        label="Password"
-        sx={{ ml: 9 }}
-        size="small"
-        type="password"
-        name="password"
-        value={password}
-        onChange={changesInputValues}
-      />
-      <p style={{ color: "Red", textAlign: "center" }}>
-        <font color="red">{errorMessageforPassword}</font>
-      </p>
+        {/* <InputLabel  required sx={{ ml: 10  }} className="label"><b>Password</b></InputLabel> */}
+        <TextField
+          required
+          label="Password"
+          sx={{ ml: 9 }}
+          size="small"
+          type="password"
+          name="password"
+          value={password}
+          onChange={changesInputValues}
+        />
+        <p style={{ color: "Red", textAlign: "center" }}>
+          <font color="red">{errorMessageforPassword}</font>
+        </p>
 
-      {/* <InputLabel  required sx={{ ml: 10  }} className="label"><b>Confirm Password</b></InputLabel> */}
-      <TextField
-        required
-        label="Confirm Password"
-        sx={{ ml: 9 }}
-        size="small"
-        type="password"
-        name="confirmpassword"
-        value={confirmPassword}
-        onChange={changesInputValues}
-      />
-      <p style={{ color: "Red", textAlign: "center" }}>
-        <font color="red">{errorMessageforConfirmPassword}</font>
-      </p>
+        {/* <InputLabel  required sx={{ ml: 10  }} className="label"><b>Confirm Password</b></InputLabel> */}
+        <TextField
+          required
+          label="Confirm Password"
+          sx={{ ml: 9 }}
+          size="small"
+          type="password"
+          name="confirmpassword"
+          value={confirmPassword}
+          onChange={changesInputValues}
+        />
+        <p style={{ color: "Red", textAlign: "center" }}>
+          <font color="red">{errorMessageforConfirmPassword}</font>
+        </p>
 
-      <Button
-        variant="contained"
-        sx={{
-          ml: 16,
-          mb: 2,
-          mr: 20,
-          background: primaryColor,
-          textTransform: "none",
-          height: "2.5rem",
-          "&:hover": {
-            backgroundColor: selectedColor,
-          },
-        }}
-        disabled={
-          submitted ||
-          errorMessageforConfirmPassword ||
-          errorMessageforEmail ||
-          errorMessageforLastName ||
-          errorMessageforFirstName
-        }
-        onClick={submit}
-      >
-        Submit
-      </Button>
-      <p style={{ color: "Red", textAlign: "center" }}>{message}</p>
-      <Grid container>
-        <Grid item xs>
-          <Link to="/login" variant="body2">
-            Already registered?Login
-          </Link>
+        <Button
+          variant="contained"
+          sx={{
+            ml: 16,
+            mb: 2,
+            mr: 20,
+            background: primaryColor,
+            textTransform: "none",
+            height: "2.5rem",
+            "&:hover": {
+              backgroundColor: selectedColor,
+            },
+          }}
+          disabled={
+            submitted ||
+            errorMessageforConfirmPassword ||
+            errorMessageforEmail ||
+            errorMessageforLastName ||
+            errorMessageforFirstName
+          }
+          onClick={submit}
+        >
+          Submit
+        </Button>
+        <p style={{ color: "Red", textAlign: "center" }}>{message}</p>
+        <Grid container>
+          <Grid item xs>
+            <Link to="/login" variant="body2">
+              Already registered?Login
+            </Link>
+          </Grid>
         </Grid>
-      </Grid>
-      {/* <button disabled={errorMessageforConfirmPassword || errorMessageforEmail || errorMessageforLastName || errorMessageforFirstName} className="button" onClick={submit}>Submit</button> */}
+        {/* <button disabled={errorMessageforConfirmPassword || errorMessageforEmail || errorMessageforLastName || errorMessageforFirstName} className="button" onClick={submit}>Submit</button> */}
+      </div>
     </div>
   );
 }

@@ -10,6 +10,7 @@ import {
   InputLabel,
   Radio,
 } from "@mui/material";
+import DemoCredentialsBanner from "./DemoCredentialsBanner";
 import axios from "axios";
 
 function Login() {
@@ -105,95 +106,100 @@ function Login() {
   };
 
   return (
-    <div id="login">
-      <h2 style={{ textAlign: "center" }}>Login</h2>
+    <div>
+      <DemoCredentialsBanner />
+      <div id="login" style={{ marginTop: "60px" }}>
+        <h2 style={{ textAlign: "center" }}>Login</h2>
 
-      <Radio
-        sx={{ ml: 8, mb: 1 }}
-        type="radio"
-        name="userType"
-        value="Buyer"
-        id="Buyer"
-        checked={userType === "Buyer"}
-        onChange={changesInputValues}
-      />
-      <label htmlFor="Buyer">Buyer</label>
+        <Radio
+          sx={{ ml: 8, mb: 1 }}
+          type="radio"
+          name="userType"
+          value="Buyer"
+          id="Buyer"
+          checked={userType === "Buyer"}
+          onChange={changesInputValues}
+        />
+        <label htmlFor="Buyer">Buyer</label>
 
-      <Radio
-        sx={{ ml: 2, mb: 1 }}
-        type="radio"
-        name="userType"
-        value="Seller"
-        id="Seller"
-        checked={userType === "Seller"}
-        onChange={changesInputValues}
-      />
-      <label htmlFor="Seller">Seller</label>
-      <br></br>
+        <Radio
+          sx={{ ml: 2, mb: 1 }}
+          type="radio"
+          name="userType"
+          value="Seller"
+          id="Seller"
+          checked={userType === "Seller"}
+          onChange={changesInputValues}
+        />
+        <label htmlFor="Seller">Seller</label>
+        <br></br>
 
-      {/* <InputLabel required sx={{ ml: 10  }} className="label"><b>Email</b></InputLabel> */}
-      <TextField
-        label="Email Address"
-        sx={{ ml: 9, mb: 1 }}
-        margin="normal"
-        type="text"
-        name="email"
-        value={email}
-        onChange={changesInputValues}
-      />
-      <p style={{ color: "red", textAlign: "center" }}>
-        <font color="red">{errorMessageforEmail}</font>
-      </p>
+        {/* <InputLabel required sx={{ ml: 10  }} className="label"><b>Email</b></InputLabel> */}
+        <TextField
+          label="Email Address"
+          sx={{ ml: 9, mb: 1 }}
+          margin="normal"
+          type="text"
+          name="email"
+          value={email}
+          onChange={changesInputValues}
+        />
+        <p style={{ color: "red", textAlign: "center" }}>
+          <font color="red">{errorMessageforEmail}</font>
+        </p>
 
-      {/* <InputLabel  required sx={{ ml: 10  }} className="label"><b>Password</b></InputLabel> */}
-      <TextField
-        label="Password"
-        sx={{ ml: 9, mb: 1 }}
-        margin="normal"
-        type="password"
-        name="password"
-        value={password}
-        onChange={changesInputValues}
-      />
-      <p style={{ color: "Red", textAlign: "center" }}>
-        <font color="red"> {errorMessageforPassword} </font>
-      </p>
+        {/* <InputLabel  required sx={{ ml: 10  }} className="label"><b>Password</b></InputLabel> */}
+        <TextField
+          label="Password"
+          sx={{ ml: 9, mb: 1 }}
+          margin="normal"
+          type="password"
+          name="password"
+          value={password}
+          onChange={changesInputValues}
+        />
+        <p style={{ color: "Red", textAlign: "center" }}>
+          <font color="red"> {errorMessageforPassword} </font>
+        </p>
 
-      <Button
-        variant="contained"
-        sx={{
-          ml: 16,
-          mb: 2,
-          mr: 20,
-          background: primaryColor,
-          textTransform: "none",
-          height: "2.5rem",
-          "&:hover": {
-            backgroundColor: selectedColor,
-          },
-        }}
-        disabled={submitted || errorMessageforPassword || errorMessageforEmail}
-        // className="button"
-        onClick={submit}
-      >
-        Submit
-      </Button>
-      <p style={{ color: "Red", textAlign: "center" }}>
-        <font color="red">{message}</font>
-      </p>
-      <Grid container>
-        <Grid item xs>
-          <Link to="/otp" variant="body2">
-            Forgot password?
-          </Link>
+        <Button
+          variant="contained"
+          sx={{
+            ml: 16,
+            mb: 2,
+            mr: 20,
+            background: primaryColor,
+            textTransform: "none",
+            height: "2.5rem",
+            "&:hover": {
+              backgroundColor: selectedColor,
+            },
+          }}
+          disabled={
+            submitted || errorMessageforPassword || errorMessageforEmail
+          }
+          // className="button"
+          onClick={submit}
+        >
+          Submit
+        </Button>
+        <p style={{ color: "Red", textAlign: "center" }}>
+          <font color="red">{message}</font>
+        </p>
+        <Grid container>
+          <Grid item xs>
+            <Link to="/otp" variant="body2">
+              Forgot password?
+            </Link>
+          </Grid>
+          <Grid item>
+            <Link to="/register" variant="body2">
+              {"Don't have an account? Sign Up"}
+            </Link>
+          </Grid>
         </Grid>
-        <Grid item>
-          <Link to="/register" variant="body2">
-            {"Don't have an account? Sign Up"}
-          </Link>
-        </Grid>
-      </Grid>
-      {/* <button disabled={errorMessageforConfirmPassword || errorMessageforEmail || errorMessageforLastName || errorMessageforFirstName} className="button" onClick={submit}>Submit</button> */}
+        {/* <button disabled={errorMessageforConfirmPassword || errorMessageforEmail || errorMessageforLastName || errorMessageforFirstName} className="button" onClick={submit}>Submit</button> */}
+      </div>
     </div>
   );
 }
