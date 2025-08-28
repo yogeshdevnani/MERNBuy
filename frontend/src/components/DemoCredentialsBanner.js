@@ -18,8 +18,10 @@ const DemoCredentialsBanner = () => {
       }}
     >
       <Typography variant="body2" sx={{ fontWeight: 500 }}>
-        👋 <strong>For Recruiters:</strong> Don't want to sign up? Use demo credentials → {" "}
-        <strong>(Customer Login)</strong> user@domain.com | <strong>(Seller Login)</strong> seller@domain.com | <strong>Password:</strong> admin123
+        👋 <strong>For Recruiters:</strong> Don't want to sign up? Use demo
+        credentials → <strong>(Customer Login)</strong> user@domain.com |{" "}
+        <strong>(Seller Login)</strong> seller@domain.com |{" "}
+        <strong>Password:</strong> admin123
       </Typography>
     </Box>
   );
