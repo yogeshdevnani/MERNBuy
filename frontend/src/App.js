@@ -1,6 +1,7 @@
 import "./App.css";
 import SellerDashboard from "./pages/SellerDashboard";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 import HomePage from "./pages/HomePage";
 import CartPage from "./pages/CartPage";
 import Main from "./pages/MainPage";
@@ -9,6 +10,7 @@ import RegisterPage from "./pages/RegisterPage";
 import ResetPage from "./pages/ResetPage";
 import AccountPage from "./pages/AccountPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Box } from "@mui/material";
 import UpdatePasswordPage from "./pages/UpdatePasswordPage";
 import OrderDetails from "./components/Account/OrderDetails";
 import ListItemForm from "./components/productManagement/ListItemForm";
@@ -29,34 +31,43 @@ function App() {
   return (
     <BrowserRouter>
       <SearchContext.Provider value={{ utilState, setUtilState }}>
-        <Routes>
-          <Route index element={<Main />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/otp" element={<ResetPage />} />
-          <Route path="/reset" element={<RestrictedResetPage />} />
-          <Route path="/account" element={<AccountPage />} />
-          <Route path="/home" element={<HomePage />} />
-          <Route path="/wishlist" element={<WishlistPage />} />
-          <Route path="/sellerdashboard" element={<SellerDashboard />} />
-          <Route path="/cart" element={<CartPage />} />
-          <Route path="/product" element={<ProductPageDetails />} />
-          <Route path="/updatepassword" element={<UpdatePasswordPage />} />
-          <Route path="/orderdetails" element={<OrderDetails />} />
-          <Route path="/checkout" element={<CheckoutPage />} />
-          <Route path="/wallet" element={<WalletPage />} />
-          <Route path="/checkout/success" element={<Success />} />
-          <Route path="/address" element={<AddressPage />} />
-          <Route path="/additem" element={<ListItemForm preFilled="false" />} />
-          <Route path="/updateitem" element={<UpdateItems />} />
-          <Route path="/transaction" element={<TransactionPage />} />
-          <Route
-            path="/updateitemform"
-            element={<ListItemForm preFilled="true" />}
-          />
-
-          <Route path="/" element={<Main />} />
-        </Routes>
+        <Box
+          sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}
+        >
+          <Box sx={{ flex: 1 }}>
+            <Routes>
+              <Route index element={<Main />} />
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/register" element={<RegisterPage />} />
+              <Route path="/otp" element={<ResetPage />} />
+              <Route path="/reset" element={<RestrictedResetPage />} />
+              <Route path="/account" element={<AccountPage />} />
+              <Route path="/home" element={<HomePage />} />
+              <Route path="/wishlist" element={<WishlistPage />} />
+              <Route path="/sellerdashboard" element={<SellerDashboard />} />
+              <Route path="/cart" element={<CartPage />} />
+              <Route path="/product" element={<ProductPageDetails />} />
+              <Route path="/updatepassword" element={<UpdatePasswordPage />} />
+              <Route path="/orderdetails" element={<OrderDetails />} />
+              <Route path="/checkout" element={<CheckoutPage />} />
+              <Route path="/wallet" element={<WalletPage />} />
+              <Route path="/checkout/success" element={<Success />} />
+              <Route path="/address" element={<AddressPage />} />
+              <Route
+                path="/additem"
+                element={<ListItemForm preFilled="false" />}
+              />
+              <Route path="/updateitem" element={<UpdateItems />} />
+              <Route path="/transaction" element={<TransactionPage />} />
+              <Route
+                path="/updateitemform"
+                element={<ListItemForm preFilled="true" />}
+              />
+              <Route path="/" element={<Main />} />
+            </Routes>
+          </Box>
+          <Footer />
+        </Box>
       </SearchContext.Provider>
     </BrowserRouter>
   );

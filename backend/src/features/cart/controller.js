@@ -125,7 +125,14 @@ exports.getCartItems = async (req, res) => {
     const cart = await Cart.findOne({ userId });
 
     if (!cart) {
-      return res.status(404).json({ message: "Cart not found" });
+      // Return empty cart instead of 404
+      return res.status(200).json({
+        cartId: null,
+        userId,
+        cartItems: [],
+        totalCost: 0,
+        totalQuantity: 0,
+      });
     }
 
     res.status(200).json(cart);

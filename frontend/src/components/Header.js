@@ -170,6 +170,17 @@ const Header = () => {
                 </Button>
                 <Menu {...bindMenu(popupState)}>
                   <MenuItem
+                    aria-label="View your orders"
+                    onClick={popupState.close}
+                  >
+                    <NavLink
+                      to="/orderdetails"
+                      style={{ textDecoration: "none" }}
+                    >
+                      Orders
+                    </NavLink>
+                  </MenuItem>
+                  <MenuItem
                     aria-label="Update your password"
                     onClick={popupState.close}
                   >
