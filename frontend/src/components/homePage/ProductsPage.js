@@ -106,7 +106,6 @@ const ProductsPage = () => {
           </Grid>
         </Grid>
       </Box>
-      <Box sx={{ height: "10vh", background: selectedColor }}></Box>
     </Box>
   );
 };
