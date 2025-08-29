@@ -1,6 +1,6 @@
 import React from "react";
 import { ViewCart } from "../components/cart/ViewCart";
-import ErrorPage from "../components/ErrorPage";
+import ErrorPage from "./ErrorPage";
 import Header from "../components/Header";
 
 const CartPage = () => {

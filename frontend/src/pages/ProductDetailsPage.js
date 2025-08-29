@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
 import { useLocation } from "react-router-dom";
 import "../components/cart/ViewCart.css";
-import ErrorPage from "../components/ErrorPage";
+import ErrorPage from "./ErrorPage";
 import Header from "../components/Header";
 import ProductInfo from "../components/product/ProductInfo";
 import { Ratings } from "../components/product/Ratings";

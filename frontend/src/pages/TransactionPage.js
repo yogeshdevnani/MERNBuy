@@ -1,13 +1,8 @@
 import React from "react";
 import Transaction from "../components/wallet/Transaction";
-import ErrorPage from "../components/ErrorPage";
-
-
-
+import ErrorPage from "./ErrorPage";
 
 function TransactionPage() {
-
-    
   return (
     <div>
       {localStorage.getItem("isUserLoggedIn") ? (

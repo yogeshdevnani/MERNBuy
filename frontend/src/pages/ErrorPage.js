@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Typography, Button } from "@mui/material";
 import { Link } from "react-router-dom";
-import Header from "./Header";
+import Header from "../components/Header";
 import errorImage from "../images/status_404_not_found.jpg";
 
 //this component will display error page

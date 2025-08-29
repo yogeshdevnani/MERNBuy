@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 import React from "react";
-import ErrorPage from "../components/ErrorPage";
+import ErrorPage from "./ErrorPage";
 import Reset from "../components/reset";
 
 const RestrictedResetPage = () => {

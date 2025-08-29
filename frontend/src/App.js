@@ -25,7 +25,7 @@ import { useState } from "react";
 import RestrictedResetPage from "./pages/RestrictedResetPage";
 import AddressPage from "./pages/AddressPage";
 import TransactionPage from "./pages/TransactionPage";
-import ErrorPage from "./components/ErrorPage";
+import ErrorPage from "./pages/ErrorPage";
 
 function App() {
   const [utilState, setUtilState] = useState({});
