@@ -11,12 +11,12 @@ import { Ratings } from "../components/product/Ratings";
 export default function ProductPageDetails() {
   const [product, setProduct] = useState("");
   const { state } = useLocation();
-
   const token = localStorage.getItem("Token");
-
-  const id = state.id;
+  const id = state?.id;
 
   const fetchProductDetails = async () => {
+    if (!id) return; // Guard clause inside function
+
     const tempProduct = await axios.get(
       `${process.env.REACT_APP_BACKEND_SERVER}/products/${id}`,
       {
@@ -28,8 +28,12 @@ export default function ProductPageDetails() {
 
   useEffect(() => {
     fetchProductDetails();
-    console.log("product", product);
   }, []);
+
+  // Conditional rendering at the end
+  if (!id) {
+    return <ErrorPage />;
+  }
 
   return (
     <div>
