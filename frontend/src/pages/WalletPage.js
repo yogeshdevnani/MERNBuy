@@ -1,6 +1,6 @@
 import React from "react";
 import Wallet from "../components/wallet/Wallet";
-import ErrorPage from "../components/ErrorPage";
+import ErrorPage from "./ErrorPage";
 
 function CheckoutPage() {
   return (

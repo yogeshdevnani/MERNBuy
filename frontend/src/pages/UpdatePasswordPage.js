@@ -1,5 +1,5 @@
 import UpdatePassword from "../components/Account/updatepassword";
-import ErrorPage from "../components/ErrorPage";
+import ErrorPage from "./ErrorPage";
 function UpdatePasswordPage() {
   return (
     <div>

@@ -25,6 +25,7 @@ import { useState } from "react";
 import RestrictedResetPage from "./pages/RestrictedResetPage";
 import AddressPage from "./pages/AddressPage";
 import TransactionPage from "./pages/TransactionPage";
+import ErrorPage from "./pages/ErrorPage";
 
 function App() {
   const [utilState, setUtilState] = useState({});
@@ -64,6 +65,9 @@ function App() {
                 element={<ListItemForm preFilled="true" />}
               />
               <Route path="/" element={<Main />} />
+
+              {/* Catch-all route for 404 - MUST be last */}
+              <Route path="*" element={<ErrorPage />} />
             </Routes>
           </Box>
           <Footer />

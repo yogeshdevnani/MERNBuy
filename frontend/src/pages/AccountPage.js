@@ -1,5 +1,5 @@
 import Account from "../components/Account/account";
-import ErrorPage from "../components/ErrorPage";
+import ErrorPage from "./ErrorPage";
 
 function AccoutPage() {
   return (

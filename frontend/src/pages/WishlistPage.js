@@ -3,7 +3,7 @@ import React from "react";
 import Divider from "@mui/material/Divider";
 import Wishlist from "../components/wishlist/Wishlist";
 import Header from "../components/Header";
-import ErrorPage from "../components/ErrorPage";
+import ErrorPage from "./ErrorPage";
 
 //this component will render whislist
 const WishlistPage = () => {

@@ -8,7 +8,7 @@ import { Box, Button, Card } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import "../components/sellerDashboard/sellerdashboard.css";
 import ProductTable from "../components/productManagement/ProductTable";
-import ErrorPage from "../components/ErrorPage";
+import ErrorPage from "./ErrorPage";
 import DashboardCard from "../components/sellerDashboard/DashboardCard";
 import SellerCardsOverview from "../components/sellerDashboard/SellerCardsOverview";
 import AddBoxIcon from "@mui/icons-material/AddBox";

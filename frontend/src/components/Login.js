@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import TextField from "@mui/material/TextField";
 import "../Main.css";
@@ -21,6 +21,7 @@ function Login() {
   const [submitted, setSubmitted] = useState(true);
   const [userType, setUserType] = useState("Buyer");
   const [message, setResponseMessage] = useState();
+  const [isLoading, setIsLoading] = useState(false);
 
   const EMPTY_FIELD = "Field cannot be empty!";
   const EMAIL_REGEX =
@@ -65,21 +66,31 @@ function Login() {
 
       setPassword(value);
     }
-
-    if (email === "" || password === "") {
-      setSubmitted(true);
-    } else {
-      setSubmitted(false);
-    }
   };
+
+  useEffect(() => {
+    if (
+      email !== "" &&
+      password !== "" &&
+      !errorMessageforEmail &&
+      !errorMessageforPassword
+    ) {
+      setSubmitted(false);
+    } else {
+      setSubmitted(true);
+    }
+  }, [email, password, errorMessageforEmail, errorMessageforPassword]);
 
   const submit = (e) => {
     e.preventDefault();
+    setIsLoading(true); // Start loading
+
     const data = {
       usertype: userType,
       email: email,
       password: password,
     };
+
     //post api call to login the user
     axios
       .post(process.env.REACT_APP_BACKEND_SERVER + "/user/login", data)
@@ -87,6 +98,7 @@ function Login() {
         const output = response.data;
         const token = output.token;
 
+        setIsLoading(false);
         if (output.status) {
           localStorage.setItem("Token", token);
           setResponseMessage(output.message);
@@ -99,9 +111,11 @@ function Login() {
           setResponseMessage(output.message);
         }
       })
-      .catch((response) => {
-        console.log("response" + response);
-        setResponseMessage("Incorrect password or Email!");
+      .catch((error) => {
+        setResponseMessage("Login failed. Please try again.");
+      })
+      .finally(() => {
+        setIsLoading(false); // Stop loading regardless
       });
   };
 
@@ -176,12 +190,15 @@ function Login() {
             },
           }}
           disabled={
-            submitted || errorMessageforPassword || errorMessageforEmail
+            submitted ||
+            errorMessageforPassword ||
+            errorMessageforEmail ||
+            isLoading
           }
           // className="button"
           onClick={submit}
         >
-          Submit
+          {isLoading ? "Logging in..." : "Submit"}
         </Button>
         <p style={{ color: "Red", textAlign: "center" }}>
           <font color="red">{message}</font>

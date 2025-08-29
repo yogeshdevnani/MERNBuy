@@ -1,6 +1,6 @@
 import React from "react";
 import Payment from "../components/paymentGateway/Payment";
-import ErrorPage from "../components/ErrorPage";
+import ErrorPage from "./ErrorPage";
 
 function CheckoutPage() {
   return (

@@ -9,6 +9,7 @@ import { SearchContext } from "../../SearchContext";
 //this component will fetch the productlist and manage
 const ProductsPage = () => {
   const [productsList, setProductsList] = useState([]);
+  const [isLoading, setIsLoading] = useState(true); // Add this
   const [totalPages, setTotalPages] = useState(1);
   const token = localStorage.getItem("Token");
   const primaryColor = "#2B2D42";
@@ -43,20 +44,26 @@ const ProductsPage = () => {
   };
 
   const fetchSearchedProductsList = async () => {
-    const products = await axios.post(
-      `${process.env.REACT_APP_BACKEND_SERVER}/products/filter?page=${utilState.page}`,
-      utilState,
-      {
-        headers: { Authorization: token },
-      }
-    );
-    setUtilState({
-      ...utilState,
-      totalPages: products.data.totalPages,
-      clicked: true,
-    });
-    const productsWithWishlisted = await getProductsWithWishlisted(products);
-    setProductsList(productsWithWishlisted);
+    setIsLoading(true); // Start loading
+
+    try {
+      const products = await axios.post(
+        `${process.env.REACT_APP_BACKEND_SERVER}/products/filter?page=${utilState.page}`,
+        utilState,
+        {
+          headers: { Authorization: token },
+        }
+      );
+      setUtilState({
+        ...utilState,
+        totalPages: products.data.totalPages,
+        clicked: true,
+      });
+      const productsWithWishlisted = await getProductsWithWishlisted(products);
+      setProductsList(productsWithWishlisted);
+    } finally {
+      setIsLoading(false); // Stop loading
+    }
   };
 
   useEffect(() => {
@@ -69,43 +76,49 @@ const ProductsPage = () => {
   ]);
   return (
     <Box>
-      <Box
-        sx={{
-          flexGrow: 1,
-          paddingTop: "3rem",
-          paddingLeft: "3rem",
-          paddingRight: "3rem",
-        }}
-      >
-        <Sort
-          setProductsList={setProductsList}
-          sortCategory={sortCategory}
-          setSortCategory={setSortCategory}
-          getProductsWithWishlisted={getProductsWithWishlisted}
-          setTotalPages={setTotalPages}
-        />
-        <Grid container spacing={4}>
-          <Grid item xs={6} md={3}>
-            <Filters
-              setProductsList={setProductsList}
-              sortCategory={sortCategory}
-              getProductsWithWishlisted={getProductsWithWishlisted}
-              setTotalPages={setTotalPages}
-            />
+      {isLoading ? (
+        <Box sx={{ textAlign: "center", padding: "4rem" }}>
+          <h2>Hang tight, awesome products are on their way! 🛍️</h2>
+        </Box>
+      ) : (
+        <Box
+          sx={{
+            flexGrow: 1,
+            paddingTop: "3rem",
+            paddingLeft: "3rem",
+            paddingRight: "3rem",
+          }}
+        >
+          <Sort
+            setProductsList={setProductsList}
+            sortCategory={sortCategory}
+            setSortCategory={setSortCategory}
+            getProductsWithWishlisted={getProductsWithWishlisted}
+            setTotalPages={setTotalPages}
+          />
+          <Grid container spacing={4}>
+            <Grid item xs={6} md={3}>
+              <Filters
+                setProductsList={setProductsList}
+                sortCategory={sortCategory}
+                getProductsWithWishlisted={getProductsWithWishlisted}
+                setTotalPages={setTotalPages}
+              />
+            </Grid>
+            <Grid item xs={6} md={9}>
+              <ProductsList productsList={productsList} />
+              <Pagination
+                sx={{ padding: "2rem" }}
+                count={utilState.totalPages}
+                page={utilState.page ? utilState.page : 1}
+                onChange={handlePageChange}
+                variant="outlined"
+                shape="rounded"
+              />
+            </Grid>
           </Grid>
-          <Grid item xs={6} md={9}>
-            <ProductsList productsList={productsList} />
-            <Pagination
-              sx={{ padding: "2rem" }}
-              count={utilState.totalPages}
-              page={utilState.page ? utilState.page : 1}
-              onChange={handlePageChange}
-              variant="outlined"
-              shape="rounded"
-            />
-          </Grid>
-        </Grid>
-      </Box>
+        </Box>
+      )}
     </Box>
   );
 };
