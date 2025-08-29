@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import TextField from "@mui/material/TextField";
 import "../Main.css";
@@ -65,13 +65,20 @@ function Login() {
 
       setPassword(value);
     }
-
-    if (email === "" || password === "") {
-      setSubmitted(true);
-    } else {
-      setSubmitted(false);
-    }
   };
+
+  useEffect(() => {
+    if (
+      email !== "" &&
+      password !== "" &&
+      !errorMessageforEmail &&
+      !errorMessageforPassword
+    ) {
+      setSubmitted(false);
+    } else {
+      setSubmitted(true);
+    }
+  }, [email, password, errorMessageforEmail, errorMessageforPassword]);
 
   const submit = (e) => {
     e.preventDefault();
