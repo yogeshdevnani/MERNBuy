@@ -5,6 +5,7 @@ const Transaction = require("./Transaction");
 const Order = require("./Order");
 const Wallet = require("../wallet/Wallet");
 const Cart = require("../cart/model");
+const ProductManagementObj = require("../productManagement/model");
 
 // method to create address
 exports.createAddress = async (data, userId) => {
@@ -175,6 +176,17 @@ exports.createOrder = async (data, userId) => {
       });
       orders.push(order);
     }
+
+    // Update product quantity
+    for (let i = 0; i < cart.cartItems.length; i++) {
+      await ProductManagementObj.findByIdAndUpdate(
+        cart.cartItems[i].productId,
+        {
+          $inc: { quantity: -cart.cartItems[i].quantity },
+        }
+      );
+    }
+
     if (orders) {
       deletedCart = await Cart.deleteOne({ userId: userId });
       response = {
