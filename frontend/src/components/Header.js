@@ -28,9 +28,10 @@ const Header = () => {
   const totalItems = 0;
 
   const logout = () => {
-    const token = localStorage.getItem("Token");
-    if (token) {
+    window.scrollTo(0, 0);
+    if (window.confirm("Are you sure you want to log out?")) {
       localStorage.removeItem("Token");
+      localStorage.removeItem("userType");
       navigate("/");
     }
   };
