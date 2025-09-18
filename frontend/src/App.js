@@ -27,6 +27,7 @@ import AddressPage from "./pages/AddressPage";
 import TransactionPage from "./pages/TransactionPage";
 import ErrorPage from "./pages/ErrorPage";
 import ProtectedRoute from "./components/ProtectedRoute";
+import AuthenticatedRoute from "./components/AuthenticatedRoute";
 
 function App() {
   const [utilState, setUtilState] = useState({});
@@ -43,7 +44,14 @@ function App() {
               <Route path="/register" element={<RegisterPage />} />
               <Route path="/otp" element={<ResetPage />} />
               <Route path="/reset" element={<RestrictedResetPage />} />
-              <Route path="/account" element={<AccountPage />} />
+              <Route 
+                path="/account" 
+                element={
+                  <AuthenticatedRoute>
+                    <AccountPage />
+                  </AuthenticatedRoute>
+                } 
+              />
 
               {/* Buyer-only routes */}
               <Route
@@ -122,12 +130,54 @@ function App() {
               />
 
               {/* Shared routes for both user types */}
-              <Route path="/product" element={<ProductPageDetails />} />
-              <Route path="/updatepassword" element={<UpdatePasswordPage />} />
-              <Route path="/orderdetails" element={<OrderDetails />} />
-              <Route path="/wallet" element={<WalletPage />} />
-              <Route path="/address" element={<AddressPage />} />
-              <Route path="/transaction" element={<TransactionPage />} />
+              <Route 
+                path="/product" 
+                element={
+                  <AuthenticatedRoute>
+                    <ProductPageDetails />
+                  </AuthenticatedRoute>
+                } 
+              />
+              <Route 
+                path="/updatepassword" 
+                element={
+                  <AuthenticatedRoute>
+                    <UpdatePasswordPage />
+                  </AuthenticatedRoute>
+                } 
+              />
+              <Route 
+                path="/orderdetails" 
+                element={
+                  <AuthenticatedRoute>
+                    <OrderDetails />
+                  </AuthenticatedRoute>
+                } 
+              />
+              <Route 
+                path="/wallet" 
+                element={
+                  <AuthenticatedRoute>
+                    <WalletPage />
+                  </AuthenticatedRoute>
+                } 
+              />
+              <Route 
+                path="/address" 
+                element={
+                  <AuthenticatedRoute>
+                    <AddressPage />
+                  </AuthenticatedRoute>
+                } 
+              />
+              <Route 
+                path="/transaction" 
+                element={
+                  <AuthenticatedRoute>
+                    <TransactionPage />
+                  </AuthenticatedRoute>
+                } 
+              />
               <Route path="/" element={<Main />} />
 
               {/* Catch-all route for 404 - MUST be last */}
