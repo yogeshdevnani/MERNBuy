@@ -26,6 +26,7 @@ import RestrictedResetPage from "./pages/RestrictedResetPage";
 import AddressPage from "./pages/AddressPage";
 import TransactionPage from "./pages/TransactionPage";
 import ErrorPage from "./pages/ErrorPage";
+import TermsAndConditions from "./pages/TermsAndConditions";
 import ProtectedRoute from "./components/ProtectedRoute";
 import AuthenticatedRoute from "./components/AuthenticatedRoute";
 
@@ -44,13 +45,13 @@ function App() {
               <Route path="/register" element={<RegisterPage />} />
               <Route path="/otp" element={<ResetPage />} />
               <Route path="/reset" element={<RestrictedResetPage />} />
-              <Route 
-                path="/account" 
+              <Route
+                path="/account"
                 element={
                   <AuthenticatedRoute>
                     <AccountPage />
                   </AuthenticatedRoute>
-                } 
+                }
               />
 
               {/* Buyer-only routes */}
@@ -130,54 +131,55 @@ function App() {
               />
 
               {/* Shared routes for both user types */}
-              <Route 
-                path="/product" 
+              <Route
+                path="/product"
                 element={
                   <AuthenticatedRoute>
                     <ProductPageDetails />
                   </AuthenticatedRoute>
-                } 
+                }
               />
-              <Route 
-                path="/updatepassword" 
+              <Route
+                path="/updatepassword"
                 element={
                   <AuthenticatedRoute>
                     <UpdatePasswordPage />
                   </AuthenticatedRoute>
-                } 
+                }
               />
-              <Route 
-                path="/orderdetails" 
+              <Route
+                path="/orderdetails"
                 element={
                   <AuthenticatedRoute>
                     <OrderDetails />
                   </AuthenticatedRoute>
-                } 
+                }
               />
-              <Route 
-                path="/wallet" 
+              <Route
+                path="/wallet"
                 element={
                   <AuthenticatedRoute>
                     <WalletPage />
                   </AuthenticatedRoute>
-                } 
+                }
               />
-              <Route 
-                path="/address" 
+              <Route
+                path="/address"
                 element={
                   <AuthenticatedRoute>
                     <AddressPage />
                   </AuthenticatedRoute>
-                } 
+                }
               />
-              <Route 
-                path="/transaction" 
+              <Route
+                path="/transaction"
                 element={
                   <AuthenticatedRoute>
                     <TransactionPage />
                   </AuthenticatedRoute>
-                } 
+                }
               />
+              <Route path="/terms" element={<TermsAndConditions />} />
               <Route path="/" element={<Main />} />
 
               {/* Catch-all route for 404 - MUST be last */}
