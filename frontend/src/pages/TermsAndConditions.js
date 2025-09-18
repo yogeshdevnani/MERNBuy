@@ -1,7 +1,6 @@
 import React from "react";
 import { Box, Typography, Divider, Container } from "@mui/material";
 import Header from "../components/Header";
-import Footer from "../components/Footer";
 
 function TermsAndConditions() {
   const isLoggedIn = localStorage.getItem("Token");
@@ -82,8 +81,6 @@ function TermsAndConditions() {
           </Box>
         </Box>
       </Container>
-
-      <Footer />
     </Box>
   );
 }
