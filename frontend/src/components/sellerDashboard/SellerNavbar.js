@@ -15,6 +15,7 @@ function SellerNavbar() {
     const token = localStorage.getItem("Token");
     if (token) {
       localStorage.removeItem("Token");
+      localStorage.removeItem("userType");
       navigate("/");
     }
   };

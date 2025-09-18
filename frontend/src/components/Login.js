@@ -101,6 +101,7 @@ function Login() {
         setIsLoading(false);
         if (output.status) {
           localStorage.setItem("Token", token);
+          localStorage.setItem("userType", output.userType);
           setResponseMessage(output.message);
           if (output.userType == "Buyer") {
             navigate("/home");

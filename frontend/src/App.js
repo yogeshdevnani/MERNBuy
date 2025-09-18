@@ -26,6 +26,8 @@ import RestrictedResetPage from "./pages/RestrictedResetPage";
 import AddressPage from "./pages/AddressPage";
 import TransactionPage from "./pages/TransactionPage";
 import ErrorPage from "./pages/ErrorPage";
+import ProtectedRoute from "./components/ProtectedRoute";
+import AuthenticatedRoute from "./components/AuthenticatedRoute";
 
 function App() {
   const [utilState, setUtilState] = useState({});
@@ -42,27 +44,139 @@ function App() {
               <Route path="/register" element={<RegisterPage />} />
               <Route path="/otp" element={<ResetPage />} />
               <Route path="/reset" element={<RestrictedResetPage />} />
-              <Route path="/account" element={<AccountPage />} />
-              <Route path="/home" element={<HomePage />} />
-              <Route path="/wishlist" element={<WishlistPage />} />
-              <Route path="/sellerdashboard" element={<SellerDashboard />} />
-              <Route path="/cart" element={<CartPage />} />
-              <Route path="/product" element={<ProductPageDetails />} />
-              <Route path="/updatepassword" element={<UpdatePasswordPage />} />
-              <Route path="/orderdetails" element={<OrderDetails />} />
-              <Route path="/checkout" element={<CheckoutPage />} />
-              <Route path="/wallet" element={<WalletPage />} />
-              <Route path="/checkout/success" element={<Success />} />
-              <Route path="/address" element={<AddressPage />} />
+              <Route 
+                path="/account" 
+                element={
+                  <AuthenticatedRoute>
+                    <AccountPage />
+                  </AuthenticatedRoute>
+                } 
+              />
+
+              {/* Buyer-only routes */}
+              <Route
+                path="/home"
+                element={
+                  <ProtectedRoute allowedRoles={["Buyer"]}>
+                    <HomePage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/wishlist"
+                element={
+                  <ProtectedRoute allowedRoles={["Buyer"]}>
+                    <WishlistPage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/cart"
+                element={
+                  <ProtectedRoute allowedRoles={["Buyer"]}>
+                    <CartPage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/checkout"
+                element={
+                  <ProtectedRoute allowedRoles={["Buyer"]}>
+                    <CheckoutPage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/checkout/success"
+                element={
+                  <ProtectedRoute allowedRoles={["Buyer"]}>
+                    <Success />
+                  </ProtectedRoute>
+                }
+              />
+
+              {/* Seller-only routes */}
+              <Route
+                path="/sellerdashboard"
+                element={
+                  <ProtectedRoute allowedRoles={["Seller"]}>
+                    <SellerDashboard />
+                  </ProtectedRoute>
+                }
+              />
               <Route
                 path="/additem"
-                element={<ListItemForm preFilled="false" />}
+                element={
+                  <ProtectedRoute allowedRoles={["Seller"]}>
+                    <ListItemForm preFilled="false" />
+                  </ProtectedRoute>
+                }
               />
-              <Route path="/updateitem" element={<UpdateItems />} />
-              <Route path="/transaction" element={<TransactionPage />} />
+              <Route
+                path="/updateitem"
+                element={
+                  <ProtectedRoute allowedRoles={["Seller"]}>
+                    <UpdateItems />
+                  </ProtectedRoute>
+                }
+              />
               <Route
                 path="/updateitemform"
-                element={<ListItemForm preFilled="true" />}
+                element={
+                  <ProtectedRoute allowedRoles={["Seller"]}>
+                    <ListItemForm preFilled="true" />
+                  </ProtectedRoute>
+                }
+              />
+
+              {/* Shared routes for both user types */}
+              <Route 
+                path="/product" 
+                element={
+                  <AuthenticatedRoute>
+                    <ProductPageDetails />
+                  </AuthenticatedRoute>
+                } 
+              />
+              <Route 
+                path="/updatepassword" 
+                element={
+                  <AuthenticatedRoute>
+                    <UpdatePasswordPage />
+                  </AuthenticatedRoute>
+                } 
+              />
+              <Route 
+                path="/orderdetails" 
+                element={
+                  <AuthenticatedRoute>
+                    <OrderDetails />
+                  </AuthenticatedRoute>
+                } 
+              />
+              <Route 
+                path="/wallet" 
+                element={
+                  <AuthenticatedRoute>
+                    <WalletPage />
+                  </AuthenticatedRoute>
+                } 
+              />
+              <Route 
+                path="/address" 
+                element={
+                  <AuthenticatedRoute>
+                    <AddressPage />
+                  </AuthenticatedRoute>
+                } 
+              />
+              <Route 
+                path="/transaction" 
+                element={
+                  <AuthenticatedRoute>
+                    <TransactionPage />
+                  </AuthenticatedRoute>
+                } 
               />
               <Route path="/" element={<Main />} />
 
