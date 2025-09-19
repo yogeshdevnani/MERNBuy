@@ -11,7 +11,7 @@ function Main() {
   const selectedColor = "#EF233C";
   const navigate = useNavigate();
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   const goTologin = () => {
     navigate("/login");
@@ -28,21 +28,21 @@ function Main() {
       <Box sx={{ marginTop: "60px", textAlign: "center" }}>
         <img
           src={Logo}
-          style={{ 
-            maxWidth: isMobile ? "90%" : "360px", 
+          style={{
+            maxWidth: isMobile ? "90%" : "360px",
             height: "auto",
             maxHeight: isMobile ? "250px" : "400px",
-            marginRight: isMobile ? "0" : "10px" 
+            marginRight: isMobile ? "0" : "10px",
           }}
           alt="MERN Buy Logo"
         />
         <div className="buttons">
-          <Box 
-            sx={{ 
-              display: "flex", 
+          <Box
+            sx={{
+              display: "flex",
               flexDirection: isMobile ? "column" : "row",
               justifyContent: "center",
-              mt: isMobile ? 2 : 0
+              mt: isMobile ? 2 : 0,
             }}
           >
             <Button

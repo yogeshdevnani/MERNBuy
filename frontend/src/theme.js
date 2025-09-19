@@ -1,4 +1,4 @@
-import { createTheme } from '@mui/material/styles';
+import { createTheme } from "@mui/material/styles";
 
 // Define the responsive theme with breakpoints
 const theme = createTheme({
@@ -13,48 +13,48 @@ const theme = createTheme({
   },
   typography: {
     fontFamily: [
-      '-apple-system',
-      'BlinkMacSystemFont',
+      "-apple-system",
+      "BlinkMacSystemFont",
       '"Segoe UI"',
-      'Roboto',
+      "Roboto",
       '"Helvetica Neue"',
-      'Arial',
-      'sans-serif',
-    ].join(','),
+      "Arial",
+      "sans-serif",
+    ].join(","),
     h1: {
-      fontSize: '2.5rem',
-      '@media (max-width:600px)': {
-        fontSize: '2rem',
+      fontSize: "2.5rem",
+      "@media (max-width:600px)": {
+        fontSize: "2rem",
       },
     },
     h2: {
-      fontSize: '2rem',
-      '@media (max-width:600px)': {
-        fontSize: '1.75rem',
+      fontSize: "2rem",
+      "@media (max-width:600px)": {
+        fontSize: "1.75rem",
       },
     },
     h3: {
-      fontSize: '1.75rem',
-      '@media (max-width:600px)': {
-        fontSize: '1.5rem',
+      fontSize: "1.75rem",
+      "@media (max-width:600px)": {
+        fontSize: "1.5rem",
       },
     },
     h4: {
-      fontSize: '1.5rem',
-      '@media (max-width:600px)': {
-        fontSize: '1.25rem',
+      fontSize: "1.5rem",
+      "@media (max-width:600px)": {
+        fontSize: "1.25rem",
       },
     },
     body1: {
-      fontSize: '1rem',
-      '@media (max-width:600px)': {
-        fontSize: '0.9rem',
+      fontSize: "1rem",
+      "@media (max-width:600px)": {
+        fontSize: "0.9rem",
       },
     },
     body2: {
-      fontSize: '0.875rem',
-      '@media (max-width:600px)': {
-        fontSize: '0.8rem',
+      fontSize: "0.875rem",
+      "@media (max-width:600px)": {
+        fontSize: "0.8rem",
       },
     },
   },
@@ -62,9 +62,9 @@ const theme = createTheme({
     MuiButton: {
       styleOverrides: {
         root: {
-          '@media (max-width:600px)': {
-            padding: '8px 16px',
-            fontSize: '0.8rem',
+          "@media (max-width:600px)": {
+            padding: "8px 16px",
+            fontSize: "0.8rem",
           },
         },
       },
@@ -72,8 +72,8 @@ const theme = createTheme({
     MuiTextField: {
       styleOverrides: {
         root: {
-          '@media (max-width:600px)': {
-            margin: '8px 0',
+          "@media (max-width:600px)": {
+            margin: "8px 0",
           },
         },
       },
@@ -81,8 +81,8 @@ const theme = createTheme({
     MuiContainer: {
       styleOverrides: {
         root: {
-          '@media (max-width:600px)': {
-            padding: '0 12px',
+          "@media (max-width:600px)": {
+            padding: "0 12px",
           },
         },
       },
@@ -90,8 +90,8 @@ const theme = createTheme({
     MuiCard: {
       styleOverrides: {
         root: {
-          '@media (max-width:600px)': {
-            padding: '12px',
+          "@media (max-width:600px)": {
+            padding: "12px",
           },
         },
       },

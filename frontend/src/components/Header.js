@@ -1,7 +1,17 @@
 import React, { useContext, useState } from "react";
 import Box from "@mui/material/Box";
 import Logo from "../images/logo.png";
-import { TextField, IconButton, useMediaQuery, useTheme, Drawer, List, ListItem, ListItemText, ListItemIcon } from "@mui/material";
+import {
+  TextField,
+  IconButton,
+  useMediaQuery,
+  useTheme,
+  Drawer,
+  List,
+  ListItem,
+  ListItemText,
+  ListItemIcon,
+} from "@mui/material";
 import {
   AccountBalanceWalletOutlined,
   SearchOutlined,
@@ -30,9 +40,9 @@ const Header = () => {
   const totalCost = 0;
   const totalItems = 0;
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const [mobileOpen, setMobileOpen] = useState(false);
-  
+
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
@@ -96,7 +106,7 @@ const Header = () => {
 
   const drawer = (
     <Box sx={{ width: 250, p: 2 }}>
-      <Box sx={{ display: 'flex', justifyContent: 'center', mb: 3 }}>
+      <Box sx={{ display: "flex", justifyContent: "center", mb: 3 }}>
         <Link to="/home" onClick={() => setMobileOpen(false)}>
           <img
             style={{ height: "8rem", width: "8rem" }}
@@ -105,7 +115,7 @@ const Header = () => {
           />
         </Link>
       </Box>
-      
+
       <Box sx={{ mb: 2 }}>
         <TextField
           fullWidth
@@ -127,15 +137,15 @@ const Header = () => {
           size="small"
           aria-label="Type your product name"
         />
-        <Button 
+        <Button
           fullWidth
           variant="contained"
-          sx={{ 
+          sx={{
             mt: 1,
             background: primaryColor,
             "&:hover": {
               backgroundColor: selectedColor,
-            }
+            },
           }}
           onClick={handleSearch}
           startIcon={<SearchOutlined />}
@@ -143,50 +153,50 @@ const Header = () => {
           Search
         </Button>
       </Box>
-      
+
       <List>
-        <ListItem button onClick={() => handleNavigate('/orderdetails')}>
+        <ListItem button onClick={() => handleNavigate("/orderdetails")}>
           <ListItemIcon>
             <ShoppingBag style={{ fill: primaryColor }} />
           </ListItemIcon>
           <ListItemText primary="Orders" />
         </ListItem>
-        
-        <ListItem button onClick={() => handleNavigate('/updatepassword')}>
+
+        <ListItem button onClick={() => handleNavigate("/updatepassword")}>
           <ListItemIcon>
             <AccountCircle style={{ fill: primaryColor }} />
           </ListItemIcon>
           <ListItemText primary="Update Password" />
         </ListItem>
-        
-        <ListItem button onClick={() => handleNavigate('/account')}>
+
+        <ListItem button onClick={() => handleNavigate("/account")}>
           <ListItemIcon>
             <AccountCircle style={{ fill: primaryColor }} />
           </ListItemIcon>
           <ListItemText primary="Account Details" />
         </ListItem>
-        
+
         <ListItem button onClick={handleWishlist}>
           <ListItemIcon>
             <FavoriteBorderOutlined style={{ fill: primaryColor }} />
           </ListItemIcon>
           <ListItemText primary="Wishlist" />
         </ListItem>
-        
+
         <ListItem button onClick={handleWallett}>
           <ListItemIcon>
             <AccountBalanceWalletOutlined style={{ fill: primaryColor }} />
           </ListItemIcon>
           <ListItemText primary="Wallet" />
         </ListItem>
-        
+
         <ListItem button onClick={handleViewCart}>
           <ListItemIcon>
             <ShoppingCartOutlined style={{ fill: primaryColor }} />
           </ListItemIcon>
           <ListItemText primary="Cart" />
         </ListItem>
-        
+
         <ListItem button onClick={logout}>
           <ListItemIcon>
             <LogoutOutlined style={{ fill: primaryColor }} />
@@ -208,13 +218,15 @@ const Header = () => {
     >
       {isMobile ? (
         <>
-          <Box sx={{ 
-            display: "flex", 
-            justifyContent: "space-between", 
-            alignItems: "center",
-            padding: "10px 15px",
-            borderBottom: "1px solid #eee"
-          }}>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              padding: "10px 15px",
+              borderBottom: "1px solid #eee",
+            }}
+          >
             <Link to="/home">
               <img
                 style={{ height: "4rem", width: "4rem" }}
@@ -222,7 +234,7 @@ const Header = () => {
                 alt="logo"
               />
             </Link>
-            <IconButton 
+            <IconButton
               edge="start"
               color="inherit"
               aria-label="menu"
@@ -369,7 +381,10 @@ const Header = () => {
                         aria-label="Update your account details"
                         onClick={popupState.close}
                       >
-                        <NavLink to="/account" style={{ textDecoration: "none" }}>
+                        <NavLink
+                          to="/account"
+                          style={{ textDecoration: "none" }}
+                        >
                           Update Details
                         </NavLink>
                       </MenuItem>

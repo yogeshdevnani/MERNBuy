@@ -4,8 +4,8 @@ import { Link as RouterLink } from "react-router-dom";
 
 const Footer = () => {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-  
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+
   return (
     <Box
       sx={{
