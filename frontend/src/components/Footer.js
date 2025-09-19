@@ -1,8 +1,11 @@
-import { Box, Link } from "@mui/material";
+import { Box, Link, useMediaQuery, useTheme } from "@mui/material";
 import React from "react";
 import { Link as RouterLink } from "react-router-dom";
 
 const Footer = () => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  
   return (
     <Box
       sx={{
@@ -12,8 +15,8 @@ const Footer = () => {
         display: "flex",
         alignItems: "center",
         justifyContent: "flex-end",
-        paddingRight: "2rem",
-        paddingLeft: "2rem",
+        paddingRight: isMobile ? "1rem" : "2rem",
+        paddingLeft: isMobile ? "1rem" : "2rem",
         flexDirection: "column",
         justifyContent: "center",
         marginTop: "auto",
@@ -24,9 +27,11 @@ const Footer = () => {
         sx={{
           width: "100%",
           display: "flex",
-          justifyContent: "space-between",
+          flexDirection: isMobile ? "column" : "row",
+          justifyContent: isMobile ? "center" : "space-between",
           alignItems: "center",
           marginBottom: "0.5rem",
+          gap: isMobile ? "0.8rem" : "0",
         }}
       >
         <Link

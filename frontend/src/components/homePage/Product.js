@@ -1,4 +1,4 @@
-import { Box, Typography, IconButton, useMediaQuery } from "@mui/material";
+import { Box, Typography, IconButton, useMediaQuery, useTheme } from "@mui/material";
 import React, { useContext, useState } from "react";
 import Rating from "@mui/material/Rating";
 import Stack from "@mui/material/Stack";
@@ -66,15 +66,20 @@ const Product = (props) => {
       },
     });
   };
+  
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  
   return (
     <Box
       sx={{
         display: "flex",
         flexDirection: "column",
         gap: "0.5rem",
-        padding: "0.5rem 1rem 1.5rem 1rem",
+        padding: isMobile ? "0.3rem 0.8rem 1rem 0.8rem" : "0.5rem 1rem 1.5rem 1rem",
         borderRadius: "10px",
         boxShadow: 6,
+        width: isMobile ? "100%" : "auto",
       }}
     >
       <Box

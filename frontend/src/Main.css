@@ -1,5 +1,6 @@
 #register,#login,#main,#reset {
-    width: 400px;
+    width: 90%;
+    max-width: 400px;
     border: 1px solid #d6d7da;
     padding: 15px;
     border-radius: 5px;
@@ -14,7 +15,6 @@
 
 
   .button {
-  
     font-weight: bold;
     padding: 12px 15px;
     margin-left: auto;
@@ -23,10 +23,8 @@
   }
   
 
-  .home-button{
- 
+  .home-button {
     padding: 10px;
-    
     margin-bottom: 10px;
     margin-top: 5%;
     width: 100px;
@@ -36,8 +34,7 @@
 
   form label {
     display: block;
-    /* margin-bottom: 10px; */
-    width: 90%
+    width: 100%;
   }
 
   .errorMsg {
@@ -50,10 +47,56 @@
     margin-bottom: 10px;
   }
 
-  .radio{
+  .radio {
     display: flex;
     align-items: center;  
-    margin-bottom:25px ;
+    margin-bottom: 25px;
+  }
+
+  /* Media Queries for Responsive Design */
+  @media screen and (max-width: 600px) {
+    #register, #login, #main, #reset {
+      width: 85%;
+      padding: 10px;
+      margin: 80px auto;
+    }
+
+    .button {
+      padding: 10px 12px;
+      font-size: 0.9rem;
+    }
+
+    .home-button {
+      width: 90px;
+      margin-left: 15%;
+    }
+
+    form input, form select, .MuiFormControl-root {
+      width: 100% !important;
+      box-sizing: border-box;
+    }
+
+    .radio {
+      margin-bottom: 15px;
+    }
+  }
+
+  @media screen and (max-width: 400px) {
+    #register, #login, #main, #reset {
+      width: 90%;
+      padding: 8px;
+      margin: 60px auto;
+    }
+
+    .button {
+      padding: 8px 10px;
+      font-size: 0.85rem;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
   }
   
   
