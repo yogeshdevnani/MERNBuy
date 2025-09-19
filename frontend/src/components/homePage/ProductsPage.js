@@ -84,9 +84,9 @@ const ProductsPage = () => {
         <Box
           sx={{
             flexGrow: 1,
-            paddingTop: "3rem",
-            paddingLeft: "3rem",
-            paddingRight: "3rem",
+            paddingTop: { xs: '1rem', md: '3rem' },
+            paddingLeft: { xs: '1rem', md: '3rem' },
+            paddingRight: { xs: '1rem', md: '3rem' },
           }}
         >
           <Sort
@@ -96,8 +96,18 @@ const ProductsPage = () => {
             getProductsWithWishlisted={getProductsWithWishlisted}
             setTotalPages={setTotalPages}
           />
+          {/* On mobile, display filters above products */}
+          <Box sx={{ display: { xs: 'block', md: 'none' }, mb: 2 }}>
+            <Filters
+              setProductsList={setProductsList}
+              sortCategory={sortCategory}
+              getProductsWithWishlisted={getProductsWithWishlisted}
+              setTotalPages={setTotalPages}
+            />
+          </Box>
           <Grid container spacing={4}>
-            <Grid item xs={6} md={3}>
+            {/* On desktop, display filters in left column */}
+            <Grid item md={3} sx={{ display: { xs: 'none', md: 'block' } }}>
               <Filters
                 setProductsList={setProductsList}
                 sortCategory={sortCategory}
@@ -105,7 +115,7 @@ const ProductsPage = () => {
                 setTotalPages={setTotalPages}
               />
             </Grid>
-            <Grid item xs={6} md={9}>
+            <Grid item xs={12} md={9}>
               <ProductsList productsList={productsList} />
               <Pagination
                 sx={{ padding: "2rem" }}
